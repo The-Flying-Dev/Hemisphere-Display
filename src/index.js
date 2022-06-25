@@ -1,27 +1,31 @@
 import React from 'react';
 //import ReactDOM from 'react-dom';
 import { createRoot } from 'react-dom/client';
-import HemisphereDisplay from './HemisphereDisplay';
+//import HemisphereDisplay from './HemisphereDisplay';
 
 class App extends React.Component {
 
   constructor(props) { //part of the React.Component class
     super(props)
 
-    this.state = { latitude: 25 }
+    this.state = { latitude: null, errorMessage: '' } //initial value for state,must be available when component is created
 
     window.navigator.geolocation.getCurrentPosition(
-      (position) => {
-        this.setState({ latitude: position.coords.latitude })
+      (position) => {//callback function
+        this.setState({ latitude: position.coords.latitude }) //changing state data
       },
-      (error) => console.log(error)
+      (error) => {
+        this.setState({ errorMessage: error.message }) //changing state data
+      }
     );
   }
 
   render() {
     return(
       <div>
-        { this.state.latitude }
+        
+        { this.state.latitude } 
+        { this.state.errorMessage }
       </div>      
     )
   }
