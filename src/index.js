@@ -1,7 +1,7 @@
 import React from 'react';
 //import ReactDOM from 'react-dom';
 import { createRoot } from 'react-dom/client';
-//import HemisphereDisplay from './HemisphereDisplay';
+import HemisphereDisplay from './HemisphereDisplay';
 
 class App extends React.Component {
 
@@ -37,11 +37,11 @@ class App extends React.Component {
 
   render() {
     //conditional rendering
-    if(this.state.latitude && !this.state.errorMessage) {
-      return<div>{ this.state.latitude }</div>
-    }    
     if(!this.state.latitude && this.state.errorMessage) {
       return<div>{ this.state.errorMessage }</div>
+    }    
+    if(this.state.latitude && !this.state.errorMessage) {
+      return<div><HemisphereDisplay latitude={this.state.latitude} /></div>
     }  
     else {
       return<div>Loading...</div>
