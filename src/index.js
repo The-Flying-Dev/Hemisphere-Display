@@ -5,11 +5,26 @@ import { createRoot } from 'react-dom/client';
 
 class App extends React.Component {
 
+/*  
   constructor(props) { //part of the React.Component class
     super(props)
-
     this.state = { latitude: null, errorMessage: '' } //initial value for state,must be available when component is created
 
+    window.navigator.geolocation.getCurrentPosition(
+      (position) => {//callback function
+        this.setState({ latitude: position.coords.latitude }) //changing state data
+      },
+      (error) => {
+        this.setState({ errorMessage: error.message }) //changing state data
+      }
+    );
+  }
+*/
+
+  state = { latitude: null, errorMessage: '' } //initial value
+
+  //lifecycle method
+  componentDidMount() {
     window.navigator.geolocation.getCurrentPosition(
       (position) => {//callback function
         this.setState({ latitude: position.coords.latitude }) //changing state data
