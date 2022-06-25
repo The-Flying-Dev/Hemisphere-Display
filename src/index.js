@@ -21,13 +21,17 @@ class App extends React.Component {
   }
 
   render() {
-    return(
-      <div>
-        
-        { this.state.latitude } 
-        { this.state.errorMessage }
-      </div>      
-    )
+    //conditional rendering
+    if(this.state.latitude && !this.state.errorMessage) {
+      return<div>{ this.state.latitude }</div>
+    }    
+    if(!this.state.latitude && this.state.errorMessage) {
+      return<div>{ this.state.errorMessage }</div>
+    }  
+    else {
+      return<div>Loading...</div>
+    }         
+    
   }
 }
 
