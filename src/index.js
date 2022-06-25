@@ -3,6 +3,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import HemisphereDisplay from './HemisphereDisplay';
 
+
 class App extends React.Component {
 
 /*  
