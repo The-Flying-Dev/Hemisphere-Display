@@ -1,1 +1,1 @@
-# A React App That Displays whether user is in the Northern or Southern Hemisphere
+# A React App That Displays whether a user is in the Northern or Southern Hemisphere
